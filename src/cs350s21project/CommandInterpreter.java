@@ -17,7 +17,7 @@ Angel Bermudez
 III. 1-5, 7-9
 II.  7,8
  */
-
+//class project
 public class CommandInterpreter  {
 	public void evaluate(String command) throws RuntimeException {
 		String str = command;		
@@ -28,18 +28,23 @@ public class CommandInterpreter  {
 		//each methods needs passed the command and the parsed string of the command.
 		if(parsed[0].equals("create")) {
 			System.out.println("we created");
+			CreateInterpreter.createEvaluate(command, parsed);
 			
 		}else if(parsed[0].equals("define")) {
 			System.out.println("we defined");
+			DefineInterpreter.defineEvaluate(command, parsed);
 			
 		}else if(parsed[0].equals("set")) {
 			System.out.println("setting");
+			SetInterpreter.setEvaluate(command, parsed);
 			
 		}else if (parsed[0].equals("delete")) {
 			System.out.println("deleteing");
+			DeleteInterpreter.deleteEvaluate(command, parsed);
 			
 		}else if(parsed[0].charAt(0) == '@') {
 			System.out.println("program command");
+			ProgramInterpreter.programEvaluate(command, parsed);
 			
 		}else {
 			System.out.println("Command not recognized");
