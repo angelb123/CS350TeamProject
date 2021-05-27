@@ -14,7 +14,10 @@ public class DefineInterpreter {
 	private CommandManagers _managers;
 	
 	static public void defineEvaluate(String command, String[] parsed) {
-		//this method is used for determing what define metod to use
+		
+		//wrapped what I had into this static method - Angel
+		DefineInterpreter interpreter = new DefineInterpreter(command, parsed);
+		interpreter.execute();
 	}
 	
 	public DefineInterpreter(String command, String[] parsed) throws RuntimeException {
@@ -28,7 +31,7 @@ public class DefineInterpreter {
 		
 		if(parsed[1].equals("munition")) { // define munitions block
 			
-			//iii.1 - DEFINE A BOMB 
+			//iii.1 - DEFINE A BOMB - Angel
 			if(parsed[2].equals("bomb")) { // define munitions,  bomb
 				_id = new AgentID(parsed[3]);
 				defCommand = new CommandMunitionDefineBomb(_managers, originalCommand, _id);
@@ -36,19 +39,19 @@ public class DefineInterpreter {
 			}
 			
 			
-			//iii.2 - DEFINE A SHELL
+			//iii.2 - DEFINE A SHELL - Angel
 			if(parsed[2].equals("shell")) {
 				_id = new AgentID(parsed[3]);
 				defCommand = new CommandMunitionDefineShell(_managers, originalCommand, _id);
 			}
 			
 			//iii.3 - DEFINE A DEPTH CHARGE
-			if(parsed[2].equals("depth_charge")) {
+			if(parsed[2].equals("depth_charge")) { //- Angel
 				_id = new AgentID(parsed[3]);
 				AgentID fuzeID;
 				
 				
-				//
+				// - Angel
 				//To define a depth charge, we need to use an existing depth_charge id. 
 				//we will check to see if it exists in CommandManagers, in the Sensor Manager. 
 				//If it doesnt, the depth_charge is not created and we throw a runtime exception
@@ -76,7 +79,7 @@ public class DefineInterpreter {
 			}
 			
 			//iii.4 - DEFINE A TORPEDO
-			if(parsed[2].equals("torpedo")) {
+			if(parsed[2].equals("torpedo")) { // -Angel
 				_id = new AgentID(parsed[3]);
 				AgentID sensorID = new AgentID(parsed[6]);
 				AgentID fuzeID = new AgentID(parsed [8]);
@@ -86,7 +89,7 @@ public class DefineInterpreter {
 			}
 			
 			//iii.5 - DEFINE A MISSLE
-			if(parsed[2].equals("missle")) {
+			if(parsed[2].equals("missle")) { // - Angel
 				_id = new AgentID(parsed[3]);
 				AgentID sensorID = new AgentID(parsed[6]);
 				AgentID fuzeID = new AgentID(parsed[8]);
@@ -122,8 +125,8 @@ public class DefineInterpreter {
 	
 	
 	
-	
-	public void execute() throws RuntimeException {
+
+	public void execute() throws RuntimeException { // - Angel
 		if(defCommand == null) {
 			throw new RuntimeException("No Command Object was created in DefineCommand Class constructor ");
 		}
