@@ -23,7 +23,7 @@ public class BombTest {
 		
 		assertEquals(coord.getX(), 100, "getX()");
 		assertEquals(coord.getY(), 200, "getY()");
-		assertEquals(bomb.getReleaseAltitude(), 300.0, "getReleaseAltitude");
+		assertEquals(bomb.getReleaseAltitude(), 300.0, "getReleaseAltitude()");
 		assertEquals(bomb.getDescentSpeed(), 10, "getDescentSpeed()");
 		
 	}
