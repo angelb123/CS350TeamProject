@@ -143,12 +143,7 @@ public class DefineInterpreter {
 		
 	
 	}//end of define methods
-	
-	
-	
-	
-	
-	
+		
 
 	public void execute() throws RuntimeException { // - Angel
 		if(defCommand == null) {

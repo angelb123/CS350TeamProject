@@ -22,6 +22,10 @@ public class DeleteInterpreter {
 	public DeleteInterpreter(String command, String[] parsed) throws RuntimeException {
 		_managers = CommandManagers.getInstance();
 		
+		if(parsed[1].equals("window")) {//han
+			
+		}
+		
 	}
 	
 	public void execute() throws RuntimeException { // - Angel

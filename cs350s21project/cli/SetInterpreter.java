@@ -21,6 +21,29 @@ public class SetInterpreter {
 	//add set command methods down below
 	public SetInterpreter(String command, String[] parsed) throws RuntimeException {
 		_managers = CommandManagers.getInstance();
+		
+		if(parsed[2].equals("course")) {//dustin
+		 //todo	
+		}
+		
+		if(parsed[2].equals("speed")) {//angel
+			 //todo	
+		}
+		
+		if(parsed[2].equals("altitude")||parsed[2].equals("depth")) {//angel
+			 //todo	
+		}
+		
+		if(parsed[2].equals("load")) {//angel
+			 //todo	
+		}
+		
+		if(parsed[2].equals("deploy")) {//angel
+			 //todo	
+		}
+		
+		
+		
 	}	
 	
 	public void execute() throws RuntimeException { // - Angel

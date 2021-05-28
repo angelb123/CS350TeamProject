@@ -22,7 +22,17 @@ public class CreateInterpreter {
 	public CreateInterpreter(String command, String[] parsed) throws RuntimeException {
 		_managers = CommandManagers.getInstance();
 		
+		if(parsed[1].equals("window")) {//han
+		//create window id top view with size (latitude1 latitude2 latitude3) (longitude1 longitude2 longitude3)
+			
+		}
 		
+		
+		
+		if(parsed[1].equals("actor")) {//Dustin
+		//create actor id1 from id2 at coordinates with course course speed speed
+			
+		}
 		
 		
 		

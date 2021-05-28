@@ -23,6 +23,35 @@ public class ProgramInterpreter {
 	public ProgramInterpreter(String command, String[] parsed) throws RuntimeException {
 		_managers = CommandManagers.getInstance();
 		
+		if(parsed[0].equals("@load")) {//han
+			
+		}
+		
+		if(parsed[0].equals("@pause")) {//han
+			
+		}
+		
+		if(parsed[0].equals("@resume")) {//han
+	
+		}
+		
+		if(parsed[0].equals("@set")) {//han
+	
+		}
+		
+		if(parsed[0].equals("@wait")) {//han
+	
+		}
+		
+		if(parsed[0].equals("@force")) {//han
+	
+		}
+		
+		if(parsed[0].equals("@exit")) {//han
+	
+		}
+		
+		
 		
 	}
 	
