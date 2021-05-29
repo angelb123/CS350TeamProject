@@ -2,14 +2,23 @@ import org.junit.jupiter.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.util.Random;
+
 import org.junit.Test;
 public class BombTest {
 	
-	// Tests written by Angel Bermudez
+	// Angel, Dustin, Han
+	// CS350 Spring 21'
+	//Project Part II
+	
 	
 	@Test
 	public void testWind() {
-		Bomb bomb = new Bomb(0, 0, 0, 0, null, 0, 45, 10);
+		Bomb bomb = new Bomb(0, 0, 0, 0, Bomb.E_ErrorType.NONE, 0, 45, 10);
 		assertEquals(bomb.getWindDirection(),45,"getWindDirection()");
 		
 		assertEquals(bomb.getWindSpeed(),10.0,"getWindSpeed()");
@@ -17,7 +26,7 @@ public class BombTest {
 	
 	@Test
 	public void testRelease() {
-		Bomb bomb = new Bomb(100, 200, 300, 10, null, 0, 0, 0);
+		Bomb bomb = new Bomb(100, 200, 300, 10, Bomb.E_ErrorType.NONE, 0, 0, 0);
 		
 		Bomb.Coordinates coord = bomb.getReleaseCoordinates();
 		
@@ -45,9 +54,11 @@ public class BombTest {
 		assertEquals(bomb3.getErrorRange(), 10, "getErrorRange()");
 		
 		
+	
+	
 	}
 	
 	
-	
+
 	
 }
