@@ -367,6 +367,11 @@ public class CommandInterpreter  {
 		}
 		
 		
+		if(_commands.isEmpty()) { // no splitting was done - EDGE CASE
+			_commands.add(_command);
+		}
+		
+		
 		for(int i = 0; i < _commands.size(); i ++) {
 			if(_commands.get(i).charAt(0) == ' ') { 
 				_commands.set(i, _commands.get(i).substring(i, _commands.get(i).length()));
