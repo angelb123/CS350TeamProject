@@ -24,7 +24,7 @@ public class DefineInterpreter {
 		_managers = CommandManagers.getInstance();
 		
 		//Convert the command array back to a string
-		String originalCommand = Arrays.toString(parsed);
+		//String originalCommand = Arrays.toString(parsed);
 		
 		
 		
@@ -33,7 +33,7 @@ public class DefineInterpreter {
 			//iii.1 - DEFINE A BOMB - Angel
 			if(parsed[2].equals("bomb")) { // define munitions,  bomb
 				_id = new AgentID(parsed[3]);
-				defCommand = new CommandMunitionDefineBomb(_managers, originalCommand, _id);
+				defCommand = new CommandMunitionDefineBomb(_managers, command, _id);
 				
 			}
 			
@@ -41,7 +41,7 @@ public class DefineInterpreter {
 			//iii.2 - DEFINE A SHELL - Angel
 			if(parsed[2].equals("shell")) {
 				_id = new AgentID(parsed[3]);
-				defCommand = new CommandMunitionDefineShell(_managers, originalCommand, _id);
+				defCommand = new CommandMunitionDefineShell(_managers, command, _id);
 			}
 			
 			//iii.3 - DEFINE A DEPTH CHARGE
@@ -73,7 +73,7 @@ public class DefineInterpreter {
 				
 				fuzeID = new AgentID(parsed[6]);
 				
-				defCommand = new CommandMunitionDefineDepthCharge(_managers, originalCommand, _id, fuzeID);
+				defCommand = new CommandMunitionDefineDepthCharge(_managers, command, _id, fuzeID);
 				
 			}
 			
@@ -83,7 +83,7 @@ public class DefineInterpreter {
 				AgentID sensorID = new AgentID(parsed[6]);
 				AgentID fuzeID = new AgentID(parsed [8]);
 				Time time = new Time(Double.valueOf(parsed[11]));
-				defCommand = new CommandMunitionDefineTorpedo(_managers, originalCommand, _id, sensorID, fuzeID, time);
+				defCommand = new CommandMunitionDefineTorpedo(_managers, command, _id, sensorID, fuzeID, time);
 				
 			}
 			
@@ -95,7 +95,7 @@ public class DefineInterpreter {
 	
 				DistanceNauticalMiles distance = new DistanceNauticalMiles(Double.valueOf(parsed[11]));
 				
-				defCommand = new CommandMunitionDefineMissile(_managers, originalCommand, _id, sensorID, fuzeID, distance);
+				defCommand = new CommandMunitionDefineMissile(_managers, command, _id, sensorID, fuzeID, distance);
 				
 			}
 			
@@ -104,14 +104,22 @@ public class DefineInterpreter {
 		
 		
 		
-		
+		//ii.1
 		//ship  define ship id1 with munition[s] (idn+)
 		if(parsed[1].equals("ship")) { //Dustin;WIP
 			//todo
+			_id = new AgentID(parsed[2]);
+			List<AgentID> munitions = new List<AgentID>(5);
+			// need to add list of munitions
+			for(int i = 5; i < parsed.length; i++) {
+				AgentID temp = new AgentID(parsed[i]);
+				munitions.add(temp);
+			}
+			defCommand = new CommandActorDefineShip(_managers, command, _id, munitions);
 			
 		}
 		
-		
+		//iv.1-8
 		//sensors
 		if(parsed[1].equals("sensors")) {//Dustin;WIP
 			//todo

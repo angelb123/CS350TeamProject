@@ -39,7 +39,7 @@ public class CommandInterpreter  {
 		return s;
 	}
 	
-	public String[] parseLatLong(String str) {// this takes a latitude or longitude and splits it up into
+	public static String[] parseLatLong(String str) {// this takes a latitude or longitude and splits it up into
 		
 		String s[] = new String[3];
 		
@@ -60,8 +60,10 @@ public class CommandInterpreter  {
 	} 
 	
 	
-	public String[] pCoordinates(String coords) {
-		return null ;
+	public static String[] pCoordinates(String coords) {
+		//todo
+		String[] s = coords.split("/");		
+		return s;
 	}
 	
 	public String pParenthesis(Srting word) {//this can remove a parenthesis from the front or the end of a string or both-Dustin

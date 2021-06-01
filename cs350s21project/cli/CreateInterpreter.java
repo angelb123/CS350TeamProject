@@ -31,6 +31,29 @@ public class CreateInterpreter {
 		
 		if(parsed[1].equals("actor")) {//Dustin
 		//create actor id1 from id2 at coordinates with course course speed speed
+			_id = parsed[2];
+			AgentID _family = new AgentID(parsed[4]);
+			//to do parse coodinates
+			//parse the lat &long
+			
+			String[] coord = CommandInterpreter.pCoordinates(parsed[6]);
+			
+			String[] latTemp = CommandInterpreter.pLatLong(coord[0]);			
+			Latitude latitude = new Latitude(Integer.valueOf(latTemp[0]), Integer.valueOf(latTemp[1]), Double.valueOf(latTemp[2]));
+			
+			
+			String[] lonTemp = CommandInterpreter.pLatLong(coord[1]);
+			Longitude longitude = new Longitude(Integer.valueOf(lonTemp[0]), Integer.valueOf(lonTemp[1]), Double.valueOf(lonTemp[2]));
+						
+			
+			Altitude altitude = new Altitude(Double.valueOf(coord[2]));
+						
+			CoodinateWorld3D position = new CoodinateWorld3D(latitude, longitude, altitude);
+			
+			Course course = new Course(Double.valueOf(parsed[9]));
+			GroundSpeed speed = new GroundSpeed(double.valueOf(parsed[11]));
+			
+			defCommand = new CommandActorCreateActor(_managers, command, _id, _family, position, course, speed);
 			
 		}
 		

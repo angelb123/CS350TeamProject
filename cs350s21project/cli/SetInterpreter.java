@@ -25,8 +25,12 @@ public class SetInterpreter {
 	public SetInterpreter(String command, String[] parsed) throws RuntimeException {
 		_managers = CommandManagers.getInstance();
 		
-		if(parsed[2].equals("course")) {//dustin
-		 //todo	
+		//ii.6
+		if(parsed[2].equals("course")) {//dustin- unsigned int
+		 	
+			_id = new AgentID(parsed[1]);
+			Course nextCourse = new Course(Double.valueOf(parsed[3]));
+			setCommand = new CommandActorSetCourse(_managers, command, _id, nextCourse);
 		}
 		
 		//ii.7

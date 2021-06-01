@@ -148,7 +148,7 @@ public class CommandInterpreter  {
 	
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
-	public String[] parseLatLong(String str) {// this takes a latitude or longitude and splits it up into
+	public static String[] parseLatLong(String str) {// this takes a latitude or longitude and splits it up into
 		
 		String s[] = new String[3];
 		
@@ -168,7 +168,7 @@ public class CommandInterpreter  {
 	} 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
-	public String[] pCoordinates(String coords) {//splits coordinates into a string array(will need further parsing)
+	public static String[] pCoordinates(String coords) {//splits coordinates into a string array(will need further parsing)
 		String[] str = coords.split("/");
 		return str;
 	}
