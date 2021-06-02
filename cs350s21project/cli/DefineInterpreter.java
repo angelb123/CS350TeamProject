@@ -123,25 +123,45 @@ public class DefineInterpreter {
 		//sensors
 		if(parsed[1].equals("sensors")) {//Dustin;WIP
 			//todo
+			_id = new AgentID(parsed[3]);
 			switch(parsed[2]) {
 				case "radar"://define sensor radar id with field of view fov power power sensitivity sensitivity
+					FieldOfView fov = new FieldOfView(new AngleNavigational(Double.valueOf(parsed[8])));//double
+					Power power = new Power(Double.valueOf(parsed[10]));
+					Sensitivity sense = new Sensitivity(Double.valueOf(parsed[12]));
+					defCommand  = new CommandSensorDefineRadar(_managers, command, _id, fov, power, sense);
 					break;
 				case "thermal"://define sensor thermal id with field of view fov sensitivity sensitivity
+					FieldOfView fov = new FieldOfView(new AngleNavigational(Double.valueOf(parsed[8])));					
+					Sensitivity sense = new Sensitivity(Double.valueOf(parsed[10]));
+					defCommand = new CommandSensorDefineThermal(_managers, command, _id, fov, sense);
 					break;
 				case "acoustic"://define sensor acoustic id with sensitivity sensitivity
+					Sensitivity sense = new Sensitivity(Double.valueOf(parsed[6]));
+					defCommand = new CommandSensorDefineAcoustic(_managers, command, _id, sense);
 					break;
-				case "sonar:":
+				case "sonar":
+					_id = new AgentID(parsed[4]);
 					if(parsed[3].equals("active")) {//define sensor sonar active id with power power sensitivity sensitivity
-						
+						Power power = new Power(Double.valueOf(parsed[7]));
+						Sensitivity sense = new Sensitivity(Double.valueOf(parsed[9]));
+						defCommand = new CommandSensorDefineSonarActive(_managers, command, _id, power, sense);
 					}else if(parsed[3].equals("passive")){//define sensor sonar passive id with sensitivity sensitivity
-						
+						Sensitivity sense = new Sensitivity(Double.valueOf(parsed[7]));
+						defCommand = new CommandSensorDefineSonarActive(_managers, command, _id, sense);
 					}else {System.out.println("Sonar type not defined");}
 					break;
 				case "depth"://define sensor depth id with trigger depth altitude
+					Altitude altitude = new Altitude(Double.valueOf(parsed[7]));
+					defCommand = new CommandSensorDefineDepth(_managers, command, _id, altitude);
 					break;
 				case "distance"://define sensor distance id with trigger distance distance
+					DistanceNauticalMiles distance = new DistanceNauticalMiles(Double.valueOf(parsed[7]));
+					defCommand = new CommandSensorDefineDistance(_managers, command, _id, distance);
 					break;
 				case "time"://define sensor time id with trigger time time
+					Time time = new Time(Double.valueOf(parsed[7]));
+					defCommand = new CommandSensorDefineTime(_managers, command, _id, time);
 					break;
 				default:
 					System.out.println("Sensor type not found");					
