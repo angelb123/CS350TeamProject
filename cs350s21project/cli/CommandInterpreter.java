@@ -213,8 +213,13 @@ public class CommandInterpreter  {
 				lastIndex = i+1;
 				_commands.add(temp);
 			}
+			
 		}
 		
+		
+		if(_commands.isEmpty()) { // no splitting was done - EDGE CASE
+			_commands.add(_command);
+		}
 		
 		
 		
