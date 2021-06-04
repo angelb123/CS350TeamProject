@@ -45,7 +45,7 @@ public class ProgramInterpreter {
 	        defCommand = new CommandMiscSetUpdate(_managers, command, _time);
 	        }
 		
-		if(parsed[1].equals("@wait")) {//han
+		if(parsed[0].equals("@wait")) {//han
 	        _time = new Time(Double.valueOf(parsed[2]));
 	        defCommand = new CommandMiscWait(_managers, command, _time);
 		}
@@ -53,7 +53,7 @@ public class ProgramInterpreter {
 		//CommandActorSetState​(CommandManagers managers,java.lang.String text, AgentID id, 
 		//CoordinateWorld3D position, Course course, Groundspeed speed)
 		
-		if(parsed[1].equals("@force")) {//han
+		if(parsed[0].equals("@force")) {//han
 	       _id = new AgentID(parsed[1]);
 	       String[] coord = CommandInterpreter.pCoordinates(parsed[4]); 
 	       String[] latTemp = CommandInterpreter.parseLatLong(command);
@@ -67,7 +67,7 @@ public class ProgramInterpreter {
 	       defCommand = new CommandActorSetState(_managers, command, _id, position, course, speed);
 		}
 		
-		if(parsed[1].equals("@exit")) {//han
+		if(parsed[0].equals("@exit")) {//han
 	        defCommand =new CommandMiscExit(_managers, command);
 		}
 		
