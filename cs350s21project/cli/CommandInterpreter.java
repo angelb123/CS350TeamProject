@@ -30,6 +30,15 @@ public class CommandInterpreter  {
 		
 		
 		String s = "define munition torpedo t1 with sensor s1 fuze f1 arming time 2.0; set a1 load munition t1"; // example
+		/*exampe for ProgramInterpreten:
+		 * "@load filename"
+		 * "@pause"
+		 * "@resume"
+		 * "@set update time 2.0"
+		 * "@wait time 2.0"
+		 * "@force fo1 state to 45*30'15"/110*30'10"/200 with course 090, 270 speed 2.0 "
+		 * "@exit"
+		 * -Han*/
 		
 		String ss[] = seperateCommands(s);
 		

@@ -23,7 +23,8 @@ public class DeleteInterpreter {
 		_managers = CommandManagers.getInstance();
 		
 		if(parsed[1].equals("window")) {//han
-			
+			_id=new AgentID(parsed[2]);
+			defCommand = new CommandViewDeleteWindow(_managers, command, _id);
 		}
 		
 	}
