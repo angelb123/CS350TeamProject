@@ -5,6 +5,7 @@ import cs350s21project.controller.CommandManagers;
 import cs350s21project.controller.command.*;
 import cs350s21project.controller.command.munition.*;
 import cs350s21project.datatype.*;
+import java.util.List;
 
 public class DefineInterpreter {
 	
@@ -109,13 +110,13 @@ public class DefineInterpreter {
 		if(parsed[1].equals("ship")) { //Dustin;WIP
 			//todo
 			_id = new AgentID(parsed[2]);
-			List<AgentID> munitions = new List<AgentID>(5); // Need to import list // 
+			List<AgentID> munitions = new List<AgentID>(5); // Need to import list //done 
 			// need to add list of munitions
 			for(int i = 5; i < parsed.length; i++) {
 				AgentID temp = new AgentID(parsed[i]);
 				munitions.add(temp);
 			}
-			defCommand = new CommandActorDefineShip(_managers, command, _id, munitions); // need to import CommandActorDefineShip
+			defCommand = new CommandActorDefineShip(_managers, command, _id, munitions); // need to import CommandActorDefineShip//already import
 			
 		}
 		
@@ -134,34 +135,34 @@ public class DefineInterpreter {
 				case "thermal"://define sensor thermal id with field of view fov sensitivity sensitivity
 					FieldOfView fov = new FieldOfView(new AngleNavigational(Double.valueOf(parsed[8])));					
 					Sensitivity sense = new Sensitivity(Double.valueOf(parsed[10]));
-					defCommand = new CommandSensorDefineThermal(_managers, command, _id, fov, sense); //import
+					defCommand = new CommandSensorDefineThermal(_managers, command, _id, fov, sense); //import//already import
 					break;
 				case "acoustic"://define sensor acoustic id with sensitivity sensitivity
 					Sensitivity sense = new Sensitivity(Double.valueOf(parsed[6]));
-					defCommand = new CommandSensorDefineAcoustic(_managers, command, _id, sense); //import
+					defCommand = new CommandSensorDefineAcoustic(_managers, command, _id, sense); //import//already import
 					break;
 				case "sonar":
 					_id = new AgentID(parsed[4]);
 					if(parsed[3].equals("active")) {//define sensor sonar active id with power power sensitivity sensitivity
 						Power power = new Power(Double.valueOf(parsed[7]));
 						Sensitivity sense = new Sensitivity(Double.valueOf(parsed[9]));
-						defCommand = new CommandSensorDefineSonarActive(_managers, command, _id, power, sense); //import
+						defCommand = new CommandSensorDefineSonarActive(_managers, command, _id, power, sense); //import//already import
 					}else if(parsed[3].equals("passive")){//define sensor sonar passive id with sensitivity sensitivity
 						Sensitivity sense = new Sensitivity(Double.valueOf(parsed[7]));
-						defCommand = new CommandSensorDefineSonarActive(_managers, command, _id, sense); //import
+						defCommand = new CommandSensorDefineSonarActive(_managers, command, _id, sense); //import//already import
 					}else {System.out.println("Sonar type not defined");}
 					break;
 				case "depth"://define sensor depth id with trigger depth altitude
 					Altitude altitude = new Altitude(Double.valueOf(parsed[7]));
-					defCommand = new CommandSensorDefineDepth(_managers, command, _id, altitude); //import
+					defCommand = new CommandSensorDefineDepth(_managers, command, _id, altitude); //import//already import
 					break;
 				case "distance"://define sensor distance id with trigger distance distance
 					DistanceNauticalMiles distance = new DistanceNauticalMiles(Double.valueOf(parsed[7]));
-					defCommand = new CommandSensorDefineDistance(_managers, command, _id, distance); //import
+					defCommand = new CommandSensorDefineDistance(_managers, command, _id, distance); //import//already import
 					break;
 				case "time"://define sensor time id with trigger time time
 					Time time = new Time(Double.valueOf(parsed[7]));
-					defCommand = new CommandSensorDefineTime(_managers, command, _id, time); //import
+					defCommand = new CommandSensorDefineTime(_managers, command, _id, time); //import//already import
 					break;
 				default:
 					System.out.println("Sensor type not found");					

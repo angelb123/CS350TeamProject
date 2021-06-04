@@ -32,30 +32,29 @@ public class CreateInterpreter {
 		if(parsed[1].equals("actor")) {//Dustin
 		//create actor id1 from id2 at coordinates with course course speed speed
 			
-			//_id = parsed[2]; // _id is of type AgentID, should create a new Agent ID of parsed[2] and compare those two agent ids 
-			
+			_id = new AgentID(parsed[2]); // _id is of type AgentID, should create a new Agent ID of parsed[2]//done and compare those two agent ids 
 			AgentID _family = new AgentID(parsed[4]);
 			//to do parse coodinates
 			//parse the lat &long
 			
 			String[] coord = CommandInterpreter.pCoordinates(parsed[6]);
 			
-			String[] latTemp = CommandInterpreter.pLatLong();	//change to proper method name in command interpreter class		
+			String[] latTemp = CommandInterpreter.parseLatLong();	//change to proper method name in command interpreter class	//done	
 			Latitude latitude = new Latitude(Integer.valueOf(latTemp[0]), Integer.valueOf(latTemp[1]), Double.valueOf(latTemp[2]));
 			
 			
-			String[] lonTemp = CommandInterpreter.pLatLong(coord[1]);
+			String[] lonTemp = CommandInterpreter.parseLatLong(coord[1]);//done
 			Longitude longitude = new Longitude(Integer.valueOf(lonTemp[0]), Integer.valueOf(lonTemp[1]), Double.valueOf(lonTemp[2]));
 						
 			
 			Altitude altitude = new Altitude(Double.valueOf(coord[2]));
 						
-			CoodinateWorld3D position = new CoodinateWorld3D(latitude, longitude, altitude); // fix to proper name, imoprt
+			CoordinateWorld3D position = new CoordinateWorld3D(latitude, longitude, altitude); // fix to proper name//done, imoprt//already imported
 			
 			Course course = new Course(Double.valueOf(parsed[9]));
-			GroundSpeed speed = new GroundSpeed(double.valueOf(parsed[11])); // fix to proper name; ("Groundspeed")
+			Groundspeed speed = new Groundspeed(double.valueOf(parsed[11])); // fix to proper name; ("Groundspeed")//done
 			
-			defCommand = new CommandActorCreateActor(_managers, command, _id, _family, position, course, speed); //import
+			defCommand = new CommandActorCreateActor(_managers, command, _id, _family, position, course, speed); //import//already imported
 			
 		}
 		
