@@ -183,7 +183,7 @@ public class CommandInterpreter  {
 	}
 	
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	public String pParenthesis(String word) {//this can remove a parenthesis from the front or the end of a string or both-Dustin
+	public static String pParenthesis(String word) {//this can remove a parenthesis from the front or the end of a string or both-Dustin
 		String str = word;
 		
 		//System.out.println("Start: " + str);
