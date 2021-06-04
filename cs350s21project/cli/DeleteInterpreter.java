@@ -1,9 +1,8 @@
 package cs350s21project.cli;
 
-import java.util.Arrays;
 import cs350s21project.controller.CommandManagers;
 import cs350s21project.controller.command.*;
-import cs350s21project.controller.command.munition.*;
+import cs350s21project.controller.command.view.CommandViewDeleteWindow;
 import cs350s21project.datatype.*;
 
 public class DeleteInterpreter {

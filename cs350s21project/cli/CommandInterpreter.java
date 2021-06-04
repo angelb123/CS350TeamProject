@@ -29,7 +29,14 @@ public class CommandInterpreter  {
 		 **/
 		
 		
-		String s = "define munition torpedo t1 with sensor s1 fuze f1 arming time 2.0; set a1 load munition t1"; // example
+		//String s = "define munition torpedo t1 with sensor s1 fuze f1 arming time 2.0; set a1 load munition t1"; // example
+		
+	//	String mc[] = seperateCommands(s);
+		
+		//.out.println(Arrays.toString(mc));
+		
+		
+		
 		/*exampe for ProgramInterpreten:
 		 * "@load filename"
 		 * "@pause"
@@ -40,7 +47,7 @@ public class CommandInterpreter  {
 		 * "@exit"
 		 * -Han*/
 		
-		String ss[] = seperateCommands(s);
+		String ss[] = seperateCommands(command);
 		
 		
 		
@@ -57,24 +64,24 @@ public class CommandInterpreter  {
 			//initial passing of the command to its next method.
 			//each methods needs passed the command and the parsed string of the command.
 			if(parsed[0].equals("create")) {
-				System.out.println("we created");
-				CreateInterpreter.createEvaluate(command, parsed);
+				//System.out.println("we created");
+				CreateInterpreter.createEvaluate(str, parsed);
 			
 			}else if(parsed[0].equals("define")) {
-				System.out.println("we defined");
-				DefineInterpreter.defineEvaluate(command, parsed);
+				//System.out.println("we defined");
+				DefineInterpreter.defineEvaluate(str, parsed);
 			
 			}else if(parsed[0].equals("set")) {
-				System.out.println("setting");
-				SetInterpreter.setEvaluate(command, parsed);
+				//System.out.println("setting");
+				SetInterpreter.setEvaluate(str, parsed);
 			
 			}else if (parsed[0].equals("delete")) {
-				System.out.println("deleteing");
-				DeleteInterpreter.deleteEvaluate(command, parsed);
+				//System.out.println("deleteing");
+				DeleteInterpreter.deleteEvaluate(str, parsed);
 			
 			}else if(parsed[0].charAt(0) == '@') {
-				System.out.println("program command");
-				ProgramInterpreter.programEvaluate(command, parsed);
+				//System.out.println("program command");
+				ProgramInterpreter.programEvaluate(str, parsed);
 			
 			}else {
 				System.out.println("Command not recognized");
@@ -82,63 +89,7 @@ public class CommandInterpreter  {
 		}
 		
 		
-		//String test = "hello";
-		//TO-DO
-		//System.out.println(test.charAt(0));
 		
-	/*	
-		for(int i = 0; i < parsed.length; i ++) {
-			System.out.println(parsed[i]);
-			
-			
-		}
-		
-		String temp[] =  parseLatLong(parsed[7]);
-		for(int i = 0; i < temp.length; i ++) {
-			System.out.println(temp[i]);
-		}
-		
-		String temp2[] =  parseLatLong(parsed[8]);
-		for(int i = 0; i < temp2.length; i ++) {
-			System.out.println(temp2[i]);
-		}
-		
-		String temp3[] =  parseLatLong(parsed[9]);
-		for(int i = 0; i < temp3.length; i ++) {
-			System.out.println(temp3[i]);
-		}
-		
-		String temp4[] =  parseLatLong(parsed[10]);
-		for(int i = 0; i < temp4.length; i ++) {
-			System.out.println(temp4[i]);
-		}
-		
-		String temp5[] =  parseLatLong(parsed[11]);
-		for(int i = 0; i < temp5.length; i ++) {
-			System.out.println(temp5[i]);
-		}
-		
-		String temp6[] =  parseLatLong(parsed[12]);
-		for(int i = 0; i < temp6.length; i ++) {
-			System.out.println(temp6[i]);			
-		}
-		*/
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		//CommandManagers m = new CommandManagers();
-		//m.getInstance().schedule(new CommandMiscExit(m,"test"));
 	}
 	
 	
@@ -225,7 +176,7 @@ public class CommandInterpreter  {
 			
 		}
 		
-		
+		//
 		if(_commands.isEmpty()) { // no splitting was done - EDGE CASE
 			_commands.add(_command);
 		}

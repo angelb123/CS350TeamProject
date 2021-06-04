@@ -1,9 +1,9 @@
 package cs350s21project.cli;
 
-import java.util.Arrays;
 import cs350s21project.controller.CommandManagers;
 import cs350s21project.controller.command.*;
-import cs350s21project.controller.command.munition.*;
+import cs350s21project.controller.command.actor.CommandActorSetState;
+import cs350s21project.controller.command.misc.*;
 import cs350s21project.datatype.*;
 
 public class ProgramInterpreter {

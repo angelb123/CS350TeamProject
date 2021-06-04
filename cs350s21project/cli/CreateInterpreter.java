@@ -1,9 +1,9 @@
 package cs350s21project.cli;
 
-import java.util.Arrays;
+
 import cs350s21project.controller.CommandManagers;
 import cs350s21project.controller.command.*;
-import cs350s21project.controller.command.munition.*;
+
 import cs350s21project.controller.command.actor.*;
 import cs350s21project.datatype.*;
 
@@ -26,6 +26,7 @@ public class CreateInterpreter {
 		if(parsed[1].equals("window")) {//han
 		//create window id top view with size (latitude1 latitude2 latitude3) (longitude1 longitude2 longitude3)
 			
+			
 		}
 		
 		
@@ -40,7 +41,8 @@ public class CreateInterpreter {
 			
 			String[] coord = CommandInterpreter.pCoordinates(parsed[6]);
 			
-			String[] latTemp = CommandInterpreter.parseLatLong();	//change to proper method name in command interpreter class	//done	
+			String[] latTemp = CommandInterpreter.parseLatLong(coord[0]);
+			//change to proper method name in command interpreter class	//done	
 			Latitude latitude = new Latitude(Integer.valueOf(latTemp[0]), Integer.valueOf(latTemp[1]), Double.valueOf(latTemp[2]));
 			
 			
@@ -53,7 +55,7 @@ public class CreateInterpreter {
 			CoordinateWorld3D position = new CoordinateWorld3D(latitude, longitude, altitude); // fix to proper name//done, imoprt//already imported
 			
 			Course course = new Course(Double.valueOf(parsed[9]));
-			Groundspeed speed = new Groundspeed(double.valueOf(parsed[11])); // fix to proper name; ("Groundspeed")//done
+			Groundspeed speed = new Groundspeed(Double.valueOf(parsed[11])); // fix to proper name; ("Groundspeed")//done
 			
 			defCommand = new CommandActorCreateActor(_managers, command, _id, _family, position, course, speed); //import//already imported
 			
