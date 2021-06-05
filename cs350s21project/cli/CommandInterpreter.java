@@ -59,7 +59,7 @@ public class CommandInterpreter  {
 		
 		String commandNotComment = ignoreComment(command);
 		
-		if(commandNotComment.length() > 0) {
+		if(commandNotComment.length() > 0) { // if the string is a comment, ignore it, else treat is as a command. - Angel
 		
 		String ss[] = seperateCommands(commandNotComment);
 		
@@ -219,8 +219,8 @@ public class CommandInterpreter  {
 		return arr;
 	}
 	
-	public String ignoreComment(String cmd) { 
-		if(cmd.charAt(0) == '/' && cmd.charAt(1) == '/') { // its a comment denoted by: '//'
+	public String ignoreComment(String cmd) { // check to see if the string is a comment, if it is return an empty string, if it is not, then return the actual command/s string
+		if(cmd.charAt(0) == '/' && cmd.charAt(1) == '/') { // its a comment denoted by: '//' - Angel
 			return ""; //returning an empty string
 		}
 		return cmd; 
