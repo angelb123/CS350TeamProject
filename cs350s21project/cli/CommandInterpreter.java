@@ -53,7 +53,7 @@ public class CommandInterpreter  {
 		 * "@exit"
 		 * -Han*/
 		
-		command = "define munition bomb b1";
+		command = command.toLowerCase(); // ignore word case - Angel
 		//System.out.println(ignoreComment(comment));
 		
 		
