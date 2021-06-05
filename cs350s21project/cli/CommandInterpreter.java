@@ -20,6 +20,13 @@ III. 1-5, 7-9
 II.  7,8
  */
 //class project
+
+/*
+ * CS 350 Spring 2021 
+ * Command Interpreter Team Project
+ * Dr.Tappan
+ * */
+
 public class CommandInterpreter  {
 	public void evaluate(String command) throws RuntimeException {
 		
@@ -31,12 +38,11 @@ public class CommandInterpreter  {
 		
 		//String s = "define munition torpedo t1 with sensor s1 fuze f1 arming time 2.0; set a1 load munition t1"; // example
 		
-	//	String mc[] = seperateCommands(s);
+	    //	String mc[] = seperateCommands(s);
 		
 		//.out.println(Arrays.toString(mc));
 		
-		
-		
+	
 		/*exampe for ProgramInterpreten:
 		 * "@load filename"
 		 * "@pause"
@@ -47,7 +53,11 @@ public class CommandInterpreter  {
 		 * "@exit"
 		 * -Han*/
 		
-		String ss[] = seperateCommands(command);
+		//String comment = "//Hello world this is a comment";
+		//System.out.println(ignoreComment(comment));
+		
+		String uncommentedCommand = ignoreComment(command);
+		String ss[] = seperateCommands(uncommentedCommand);
 		
 		
 		
@@ -169,7 +179,7 @@ public class CommandInterpreter  {
 				{
 					 temp = _command.substring(lastIndex, i+1);
 				}
-				System.out.println("printing temp " + temp);
+				//System.out.println("printing temp " + temp);
 				lastIndex = i+1;
 				_commands.add(temp);
 			}
@@ -200,5 +210,14 @@ public class CommandInterpreter  {
 		String arr[] = temp.split(", ");
 		return arr;
 	}
+	
+	public String ignoreComment(String cmd) { 
+		if(cmd.charAt(0) == '/' && cmd.charAt(1) == '/') { // its a comment denoted by: '//'
+			return cmd.substring(2,cmd.length());
+		}
+		return cmd; 
+		
+	}
+	
 }
 

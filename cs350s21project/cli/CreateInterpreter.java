@@ -5,6 +5,9 @@ import cs350s21project.controller.CommandManagers;
 import cs350s21project.controller.command.*;
 
 import cs350s21project.controller.command.actor.*;
+import cs350s21project.controller.command.view.CommandViewCreateWindowFront;
+import cs350s21project.controller.command.view.CommandViewCreateWindowSide;
+import cs350s21project.controller.command.view.CommandViewCreateWindowTop;
 import cs350s21project.datatype.*;
 
 public class CreateInterpreter {
