@@ -53,11 +53,15 @@ public class CommandInterpreter  {
 		 * "@exit"
 		 * -Han*/
 		
-		//String comment = "//Hello world this is a comment";
+		command = "define munition bomb b1";
 		//System.out.println(ignoreComment(comment));
 		
-		String uncommentedCommand = ignoreComment(command);
-		String ss[] = seperateCommands(uncommentedCommand);
+		
+		String commandNotComment = ignoreComment(command);
+		
+		if(commandNotComment.length() > 0) {
+		
+		String ss[] = seperateCommands(commandNotComment);
 		
 		
 		
@@ -96,6 +100,10 @@ public class CommandInterpreter  {
 			}else {
 				System.out.println("Command not recognized");
 			}	
+		}
+		}
+		else {
+			System.out.println("COMMENT: " + command);
 		}
 		
 		
@@ -213,7 +221,7 @@ public class CommandInterpreter  {
 	
 	public String ignoreComment(String cmd) { 
 		if(cmd.charAt(0) == '/' && cmd.charAt(1) == '/') { // its a comment denoted by: '//'
-			return cmd.substring(2,cmd.length());
+			return ""; //returning an empty string
 		}
 		return cmd; 
 		
